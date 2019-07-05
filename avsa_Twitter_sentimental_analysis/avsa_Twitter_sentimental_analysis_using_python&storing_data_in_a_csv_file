@@ -1,0 +1,63 @@
+import pandas as pd
+import tweepy #used to acccess twitter API
+from textblob import TextBlob #help us to perform actual sentiment analysis
+import time#control time
+
+#we can access the API provided by twitter
+twitter_consumer_key= 'pVQm04ddw4U3nDQ1SEbd2EKaS'
+twitter_consumer_secret='HqSSQOPibO6sRzXkATdran6PCgFxBrHo05soj0wCtahNiXk2mZ'
+
+twitter_access_token='1141256754308767745-UEqsqFENi2hDZbaKs8Di6lIZRT4sjT'
+#
+twitter_access_token_secret='Etuo37jQWjt9qXnEaEb49I9OwXGEe7mt5j7nkR1faCCUV'
+
+twitter_authentication =tweepy.OAuthHandler(twitter_consumer_key,twitter_consumer_secret)#method of tweepy with unknown code but functionality is in our control, it takes up 2 arguments
+twitter_authentication.set_access_token(twitter_access_token,twitter_access_token_secret)
+#set_access_tiken sets the access token we got
+api=tweepy.API(twitter_authentication)
+print("Welcome to my application- avsa_Twitter_Sentiment_Analysis")
+
+#some extra effects
+time.sleep(1)
+i=5
+while i!=0:
+    print("LoAdInG ~",i,"~")
+    time.sleep(1)
+    i=i-1
+
+#we take the input string upon which we are doing sentimental analysis
+inp=input("Enter the string about which you want to do sentimental analysis about uisng Twitter")
+public_tweets=api.search(inp)
+
+#we create the list for each header
+textList = list()
+polarityList= list()
+subjectivityList=list()
+sentimentList = list()
+
+for tweet in public_tweets:
+    txt = tweet.text
+    textList.append(txt)
+    our_analysis = TextBlob(txt)
+    polarity = our_analysis.sentiment.polarity
+    subjectivity = our_analysis.sentiment.subjectivity
+    
+    polarityList.append(polarity)
+    subjectivityList.append(subjectivity)
+    if(polarity < 0):
+        sentimentList.append('Positive')
+    else:
+        sentimentList.append('Negative')
+    print (tweet.text)
+    print ('Polarity: ', polarity,"<======+======>",end="")
+    print ('Subjectivity:', subjectivity)
+    print(" ")
+    print(" ")
+
+dataFrame = pd.DataFrame({'Tweet':textList, 'polarity':polarityList, 'subjectivity':subjectivityList, 'Sentiment':sentimentList})
+dataFrame.to_csv('avsa_twitter_sentiment_analysis.csv', sep=',', encoding='utf-8')
+
+#polarity means its a measure of how +ve or -ve a text is
+#subjectivity means measure of how much of an opinion it is v/s how factual
+#now lets run it
+
