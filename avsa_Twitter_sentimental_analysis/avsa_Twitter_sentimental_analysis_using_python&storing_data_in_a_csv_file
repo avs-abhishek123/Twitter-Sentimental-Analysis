@@ -4,12 +4,12 @@ from textblob import TextBlob #help us to perform actual sentiment analysis
 import time#control time
 
 #we can access the API provided by twitter
-twitter_consumer_key= 'pVQm04ddw4U3nDQ1SEbd2EKaS'
-twitter_consumer_secret='HqSSQOPibO6sRzXkATdran6PCgFxBrHo05soj0wCtahNiXk2mZ'
+twitter_consumer_key= 'ConsumerKey'
+twitter_consumer_secret='ConsumerSecret'
 
-twitter_access_token='1141256754308767745-UEqsqFENi2hDZbaKs8Di6lIZRT4sjT'
+twitter_access_token='AccessToken'
 #
-twitter_access_token_secret='Etuo37jQWjt9qXnEaEb49I9OwXGEe7mt5j7nkR1faCCUV'
+twitter_access_token_secret='AccessTokenSecret'
 
 twitter_authentication =tweepy.OAuthHandler(twitter_consumer_key,twitter_consumer_secret)#method of tweepy with unknown code but functionality is in our control, it takes up 2 arguments
 twitter_authentication.set_access_token(twitter_access_token,twitter_access_token_secret)
