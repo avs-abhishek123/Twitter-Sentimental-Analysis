@@ -2,6 +2,8 @@
 
 <hr>
 
+![](https://github.com/avs-abhishek123/Twitter-Sentimental-Analysis/blob/master/avsa_Twitter_sentimental_analysis/maxresdefault.jpg)
+
 - We take our input keyword, all the tweets are being automatically shown. 
 - For example, if we enter a keyword as "Trump", so, all the tweets about trumps will be shown. 
 - We can keep a limit on how many tweets we want. If we want 10 tweets, then only 10 tweets will come up.
