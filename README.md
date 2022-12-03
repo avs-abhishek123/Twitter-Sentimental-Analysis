@@ -23,3 +23,6 @@ this is called bag of words model.
 - textblob - perform actual sentiment analysis
 - pandas  - Pandas is mainly used for data analysis. Pandas allows importing data from various file formats such as comma-separated values, SQL, Microsoft Excel. It allows various data manipulation operations such as merging, reshaping, selecting, as well as data cleaning, and data wrangling features.
 - time - control time
+
+### Code Editor
+- Anaconda- A web based environment to execute python files
